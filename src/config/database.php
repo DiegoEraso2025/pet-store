@@ -1,13 +1,14 @@
 <?php
   $host      = "localhost";
   $port      = "5432";
-  $dename    = "petstore";
+  $dbname    = "petstore";
   $user      = "postgres";
   $password  = "unicesmag";
 
   $data_connection = "
   host = $host
-  port = $dbname
+  port = $port
+  dbname = $dbname
   user = $user
   password = $password
   ";
@@ -19,6 +20,6 @@ if(!$conn){
     echo "succes !!!";
 }
 
-pg_close($conn);
+//pg_close($conn);
 
 ?>

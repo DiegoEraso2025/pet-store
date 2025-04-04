@@ -21,11 +21,11 @@
    if($ans){ // ans == true 
       $count = pg_fetch_assoc($ans);
       if($row['total'] > 0){
-          echo "User already exits !!!"
-      }else{
-         $sql = "INSERT INTO users 
-                 (firstname, lastname, email, password)
-                 VALUES (' $fname','$lname','$email','$passw')
+          echo "User already exits !!!";
+              }else{
+                    $sql = "INSERT INTO users 
+                   (firstname, lastname, email, password)
+                   VALUES (' $fname','$lname','$email','$passw')
          ";
          $ans = pg_query($conn, $sql);
          if($ans){
@@ -34,19 +34,6 @@
              echo "Error";
          }
 
+        }
       }
-}else{
-         }
-
-       $sql = "INSERT INTO users 
-        (firstname, lastname, email, password)
-        VALUES (' $fname','$lname','$email','$passw')
-       ";
-       $ans = pg_query($conn, $sql);
-       if($ans){
-       echo "User has been created successfully";
-       }else{
-      echo "Error";
-   }
-
 ?>

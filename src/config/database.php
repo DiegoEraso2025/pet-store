@@ -13,7 +13,7 @@
   $dbname    = "petstore";
   $user      = "postgres";
   $password  = "unicesmag";
-
+  */
   
   $data_connection = "
   host = $host

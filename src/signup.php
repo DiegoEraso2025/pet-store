@@ -7,7 +7,9 @@
    $email = $_POST['e_mail'];
    $passw = $_POST['p_assw'];
 
-   $sql_validate_email = "
+   $hashed_password = password_hash($passw, PASSWORD_DEFAULT)
+
+  $sql_validate_email = "
       select 
           count(id) as total
       from 
@@ -16,7 +18,7 @@
         email= '$email'and 
         status = true
    ";
-   $ans = pg_query($conn, $sql_validate_email);
+   $ans = pg_query($conn, sql_validate_email);
 
    if($ans){ // ans == true 
       $count = pg_fetch_assoc($ans);
@@ -25,7 +27,7 @@
               }else{
                     $sql = "INSERT INTO users 
                    (firstname, lastname, email, password)
-                   VALUES (' $fname','$lname','$email','$passw')
+                   VALUES (' $fname','$lname','$email','$hashed_passwor')
          ";
          $ans = pg_query($conn, $sql);
          if($ans){
